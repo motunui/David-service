@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const db = new Sequelize('sqlite:./database/Trip.db');
+const db = new Sequelize('sqlite:./server/database/Trip.db');
 let faker = require('faker');
 
 const Comment = db.define('comment', {
@@ -67,9 +67,13 @@ db.sync({ force: true })
   })
   .catch(console.log("no messages saved"));
 
+  module.exports = {
+    Comment,
+    Event
+  }
 
-
-
+// resurrect this if mimicking the full 
+// functionality of TripAdvisor is desired
 
 //  const User = db.define("user", {name : Sequelize.STRING, 
 //     location : Sequelize.STRING, 
